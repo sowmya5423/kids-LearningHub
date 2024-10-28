@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Grammar - Kids Learning Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Kids Learning Hub</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="grammar-section">
+            <h1>Learn English Grammar</h1>
+            <h2>Nouns</h2>
+            <p>A noun is a person, place, thing, or idea. <br>
+            Example: <strong>dog</strong>, <strong>city</strong>, <strong>happiness</strong></p>
+            <p>Sentence: The <strong>dog</strong> barked loudly.</p>
+            <h2>Verbs</h2>
+            <p>A verb is an action word that describes what the subject is doing. <br>
+            Example: <strong>run</strong>, <strong>jump</strong>, <strong>swim</strong></p>
+            <p>Sentence: She <strong>runs</strong> every morning.</p>
+
+            <h2>Adjectives</h2>
+            <p>An adjective describes a noun. <br>
+            Example: <strong>happy</strong>, <strong>blue</strong>, <strong>tall</strong></p>
+            <p>Sentence: The <strong>happy</strong> children played in the park.</p>
+            <h2>Fill-in-the-Blank Game</h2>
+            <p>Complete the sentence by choosing the correct word from the options below:</p>
+            <p>The ___ (dog/cat) is barking.</p>
+            <button onclick="checkAnswer('dog', 'dogFeedback')">Dog</button>
+            <button onclick="checkAnswer('cat', 'dogFeedback')">Cat</button>
+            <p id="dogFeedback"></p>
+
+            <p>Complete the sentence by choosing the correct word from the options below:</p>
+            <p>____ (sita/abhi) is a girl.</p>
+            <button onclick="checkAnswer('sita', 'nameFeedback')">Sita</button>
+            <button onclick="checkAnswer('abhi', 'nameFeedback')">Abhi</button>
+            <p id="nameFeedback"></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Kids Learning Hub. All rights reserved.</p>
+    </footer>
+    <script>
+        function checkAnswer(selected, feedbackId) {
+            const feedback = document.getElementById(feedbackId);
+            if ((selected === 'dog' && feedbackId === 'dogFeedback') || (selected === 'sowmya' && feedbackId === 'nameFeedback')) {
+                feedback.textContent = 'Correct!';
+                feedback.style.color = 'green';
+            } else {
+                feedback.textContent = 'Oops! Try again.';
+                feedback.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>

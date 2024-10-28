@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Parts - Kids Learning Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Kids Learning Hub</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="body-parts-section">
+            <h1>Learn About Body Parts</h1>
+            <img src="https://www.shutterstock.com/image-vector/happy-cute-kid-boy-body-600nw-1738614815.jpg" alt="Human Body" class="body-image">
+            <div class="body-part-labels">
+                <div class="label" id="head" draggable="true" ondragstart="drag(event)">Head</div>
+                <div class="label" id="arm" draggable="true" ondragstart="drag(event)">Arm</div>
+                <div class="label" id="leg" draggable="true" ondragstart="drag(event)">Leg</div>
+                <div class="label" id="hand" draggable="true" ondragstart="drag(event)">Hand</div>
+                <div class="label" id="foot" draggable="true" ondragstart="drag(event)">Foot</div>
+                <div class="label" id="eye" draggable="true" ondragstart="drag(event)">Eye</div>
+                <div class="label" id="ear" draggable="true" ondragstart="drag(event)">Ear</div>
+                <div class="label" id="mouth" draggable="true" ondragstart="drag(event)">Mouth</div>
+                <div class="label" id="nose" draggable="true" ondragstart="drag(event)">Nose</div>
+                <div class="label" id="knee" draggable="true" ondragstart="drag(event)">Knee</div>
+            </div>
+            <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="feedback"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Kids Learning Hub. All rights reserved.</p>
+    </footer>
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+        function drop(ev) {
+            ev.preventDefault();
+            const data = ev.dataTransfer.getData("text");
+            const label = document.getElementById(data);
+            const feedback = document.getElementById('feedback');
+
+            // Check if dropped in the correct area (you can customize this check)
+            if (ev.target.className === 'drop-zone') {
+                feedback.textContent = label.textContent + ' dropped!';
+                feedback.style.color = 'green';
+            } else {
+                feedback.textContent = 'Try again!';
+                feedback.style.color = 'red';
+            }
+        }
+    </script>
+    <style>
+        .body-image {
+            width: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+        .body-part-labels {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Allow labels to wrap to the next line */
+            margin-top: 20px;
+        }
+        .label {
+            margin: 10px;
+            padding: 10px;
+            background-color: #f0ad4e;
+            border-radius: 5px;
+            cursor: grab;
+        }
+        .drop-zone {
+            width: 50%;
+            height: 300px;
+            margin: 20px auto;
+            border: 2px dashed #007bff;
+            position: relative;
+        }
+    </style>
+</body>
+</html>

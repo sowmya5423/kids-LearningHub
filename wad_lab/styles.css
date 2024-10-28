@@ -1,0 +1,157 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #73d0d3;
+    padding: 10px 20px;
+}
+
+body {
+    background-image: url('https://marketplace.canva.com/EAF5FxQlSGQ/1/0/1600w/canva-blue-and-white-illustrated-sky-and-airplane-desktop-wallpaper-zYA4XGHAYo0.jpg');
+    background-size: cover; /* This will make the background cover the entire page */
+    background-position: center; /* This will center the background image */
+    background-repeat: no-repeat; /* This will prevent the background from repeating */
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 10px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+}
+
+/* Welcome Section */
+.welcome-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f0f8ff;
+    color: #444;
+}
+
+.welcome-section h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.welcome-section p {
+    font-size: 20px;
+}
+
+.alphabet-card {
+    display: inline-block;
+    width: 80px; /* Width of the button */
+    height: 80px; /* Height of the button */
+    font-size: 24px; /* Font size */
+    margin: 10px; /* Spacing between buttons */
+    text-align: center; /* Center the text */
+    line-height: 80px; /* Center text vertically */
+    background-color: #4c4eaf; /* Button color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Transition effect */
+}
+
+.alphabet-card:hover {
+    background-color: #45a049; /* Darker color on hover */
+}
+
+
+/* Subjects Section */
+.subjects-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 40px 20px;
+    background-color: #fff8e1;
+}
+.number-grid {
+    text-align: center; /* Center the grid */
+}
+
+.button-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap to the next line */
+    justify-content: center; /* Center the buttons */
+    margin: 20px 0; /* Add some vertical spacing */
+}
+
+button {
+    display: inline-block;
+    width: 100px; /* Width of the button */
+    height: 80px; /* Height of the button */
+    font-size: 28px; /* Font size */
+    margin: 10px; /* Spacing between buttons */
+    text-align: center; /* Center the text */
+    line-height: 80px; /* Center text vertically */
+    background-color: #7c85e7; /* Button color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Transition effect */
+}
+
+button:hover {
+    background-color: #45a049; /* Darker color on hover */
+}
+
+
+.subject-card {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.subject-card:hover {
+    transform: scale(1.05);
+}
+
+.subject-card img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.subject-card h2 {
+    font-size: 24px;
+    color: #555;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #a3c8e7;
+    text-align: center;
+    padding: 10px 0;
+    color: #333;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

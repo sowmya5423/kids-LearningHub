@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Studies - Kids Learning Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Kids Learning Hub</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="social-studies-section">
+            <h1>Social Studies Topics</h1>
+
+            <h2>Community Helpers</h2>
+            <p>Learn about different community helpers such as doctors, teachers, and firefighters. Each plays a vital role in our society. <br>
+            Did you know that teachers help shape the future by educating students? Firefighters not only put out fires but also educate communities about fire safety!</p>
+            <img src="https://th.bing.com/th/id/R.b482d4fdb1365ae8ec7d1681fffb4a7f?rik=%2bOJxsym9gyGgUg&riu=http%3a%2f%2fimg.clipartlook.com%2fcommunity-helpers-clip-art-community-helpers-clipart-960_720.jpg&ehk=Sfl3xCV7jB5Cmq91CWoAdW%2fEtpOKASoLuWKe0pNXZnw%3d&risl=&pid=ImgRaw&r=0" alt="Community Helpers" class="social-image">
+
+            <h2>Festivals</h2>
+            <p>Explore various festivals celebrated around the world, such as Diwali, Christmas, and Eid. Each festival has its unique customs and traditions. <br>
+            For instance, during Diwali, people light oil lamps, while Christmas is celebrated with trees, lights, and gifts. Eid is marked by feasting and giving to those in need.</p>
+            <img src="https://i.pinimg.com/736x/b0/fc/b8/b0fcb8cceda37870c5c32195ceccb10b.jpg" alt="Festivals" class="social-image">
+
+            <h2>Geography</h2>
+            <p>Discover the geographical features of our planet, including mountains, rivers, and continents. <br>
+            The Earth has seven continents: Asia, Africa, North America, South America, Antarctica, Europe, and Australia. Each continent has its own unique landscapes and cultures!</p>
+            <img src="https://pbs.twimg.com/profile_images/1301224754767106048/HHuuK7vB_400x400.jpg" alt="Geography" class="social-image">
+
+            <h2>Matching Game: Community Helpers</h2>
+            <div id="matching-game">
+                <div class="match-pair">
+                    <span class="tool">Stethoscope</span>
+                    <span class="helper">Doctor</span>
+                </div>
+                <div class="match-pair">
+                    <span class="tool">Books</span>
+                    <span class="helper">Teacher</span>
+                </div>
+                <div class="match-pair">
+                    <span class="tool">Fire Truck</span>
+                    <span class="helper">Firefighter</span>
+                </div>
+                <div class="match-pair">
+                    <span class="tool">Ambulance</span>
+                    <span class="helper">Paramedic</span>
+                </div>
+                <div class="match-pair">
+                    <span class="tool">Police Car</span>
+                    <span class="helper">Police Officer</span>
+                </div>
+                <div class="match-pair">
+                    <span class="tool">Broom</span>
+                    <span class="helper">Janitor</span>
+                </div>
+            </div>
+            <h2>Interactive Quiz</h2>
+            <div id="quiz-container">
+                <p id="quiz-question"></p>
+                <input type="text" id="quiz-answer" placeholder="Your answer">
+                <button onclick="checkAnswer()">Submit</button>
+                <p id="quiz-feedback"></p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Kids Learning Hub. All rights reserved.</p>
+    </footer>
+    <script>
+        const matchPairs = document.querySelectorAll('.match-pair');
+        matchPairs.forEach(pair => {
+            pair.addEventListener('click', () => {
+                pair.classList.toggle('matched');
+                checkForMatch();
+            });
+        });
+        function checkForMatch() {
+            const matchedPairs = document.querySelectorAll('.matched');
+            if (matchedPairs.length === matchPairs.length) {
+                alert("Great job! You matched all community helpers with their tools!");
+            }
+        }
+        const questions = [
+            { question: "Who helps keep our streets safe?", answer: "police officer" },
+            { question: "What do firefighters use to put out fires?", answer: "fire truck" },
+            { question: "Which festival celebrates the birth of Jesus?", answer: "christmas" },
+            { question: "What is the capital of France?", answer: "paris" },
+            { question: "What do we call a person who teaches students?", answer: "teacher" },
+            { question: "Which festival is known as the Festival of Lights?", answer: "diwali" },
+            { question: "What tool do doctors use to check your heartbeat?", answer: "stethoscope" },
+            { question: "What is the largest continent?", answer: "asia" },
+        ];
+        let currentQuestionIndex = 0;
+        function displayQuestion() {
+            const quizQuestionElement = document.getElementById('quiz-question');
+            quizQuestionElement.textContent = questions[currentQuestionIndex].question;
+        }
+        function checkAnswer() {
+            const userAnswer = document.getElementById('quiz-answer').value.toLowerCase();
+            const feedbackElement = document.getElementById('quiz-feedback');
+
+            if (userAnswer === questions[currentQuestionIndex].answer) {
+                feedbackElement.textContent = "Correct!";
+                feedbackElement.style.color = 'green';
+            } else {
+                feedbackElement.textContent = "Incorrect, try again!";
+                feedbackElement.style.color = 'red';
+            }
+            document.getElementById('quiz-answer').value = '';
+            currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
+            setTimeout(displayQuestion, 2000);
+        }
+        window.onload = displayQuestion;
+    </script>
+    <style>
+        .social-studies-section {
+            padding: 20px;
+            text-align: center;
+        }
+        .social-image {
+            width: 300px;
+            height: auto;
+            margin: 10px;
+        }
+        #matching-game {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .match-pair {
+            display: flex;
+            justify-content: space-between;
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin: 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .match-pair:hover {
+            background-color: #f0f0f0;
+        }
+        .matched {
+            background-color: #cce5ff;
+        }
+        #quiz-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+        #quiz-feedback {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</body>
+</html>

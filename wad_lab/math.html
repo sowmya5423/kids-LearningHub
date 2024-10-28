@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math - Kids Learning Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Kids Learning Hub</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="math-section">
+            <h1>Basic Math Concepts</h1>
+            <div class="math-concepts">
+                <h2>Addition</h2>
+                <p>Example: 2 + 3 = 5</p>
+                <div class="visual-aid">🟦🟦 + 🟦🟦🟦 = 🟦🟦🟦🟦🟦</div>
+
+                <h2>Subtraction</h2>
+                <p>Example: 5 - 2 = 3</p>
+                <div class="visual-aid">🟦🟦🟦🟦🟦 - 🟦🟦 = 🟦🟦🟦</div>
+
+                <h2>Multiplication</h2>
+                <p>Example: 3 x 2 = 6</p>
+                <div class="visual-aid">🟦🟦🟦 × 🟦🟦 = 🟦🟦🟦🟦🟦🟦</div>
+
+                <h2>Division</h2>
+                <p>Example: 6 ÷ 2 = 3</p>
+                <div class="visual-aid">🟦🟦🟦🟦🟦🟦 ÷ 🟦🟦 = 🟦🟦🟦</div>
+            </div>
+            <h2>Math Quiz</h2>
+            <div id="quiz-container">
+                <p id="quiz-question"></p>
+                <input type="text" id="quiz-answer" placeholder="Your answer" style="padding: 10px; width: 200px; font-size: 16px;">
+                <button id="submit-button" onclick="checkAnswer()">Submit</button>
+                <p id="quiz-feedback"></p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Kids Learning Hub. All rights reserved.</p>
+    </footer>
+    <script>
+        const questions = [
+            { question: "What is 2 + 2?", answer: "4" },
+            { question: "What is 5 - 3?", answer: "2" },
+            { question: "What is 3 x 3?", answer: "9" },
+            { question: "What is 6 ÷ 2?", answer: "3" },
+        ];
+        let currentQuestionIndex = 0;
+        function displayQuestion() {
+            const quizQuestionElement = document.getElementById('quiz-question');
+            quizQuestionElement.textContent = questions[currentQuestionIndex].question;
+        }
+
+        function checkAnswer() {
+            const userAnswer = document.getElementById('quiz-answer').value;
+            const feedbackElement = document.getElementById('quiz-feedback');
+
+            if (userAnswer === questions[currentQuestionIndex].answer) {
+                feedbackElement.textContent = "Correct!";
+                feedbackElement.style.color = 'green';
+            } else {
+                feedbackElement.textContent = "Incorrect, try again!";
+                feedbackElement.style.color = 'red';
+            }
+            document.getElementById('quiz-answer').value = '';
+            currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
+            setTimeout(displayQuestion, 2000);
+        }
+        window.onload = displayQuestion;
+    </script>
+    <style>
+        .math-section {
+            padding: 20px;
+            text-align: center;
+        }
+        .math-concepts {
+            margin: 20px;
+        }
+        .visual-aid {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        #quiz-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+        #quiz-feedback {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        #quiz-answer {
+            padding: 10px;
+            width: 200px; /* Adjust width as needed */
+            font-size: 16px;
+        }
+        #submit-button {
+            padding: 10px 20px; /* Increase padding for larger button */
+            font-size: 16px;
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            border: none;
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer;
+            margin-top: 10px; /* Space between input and button */
+        }
+        #submit-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+    </style>
+</body>
+</html>

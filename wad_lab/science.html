@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science - Kids Learning Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Kids Learning Hub</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="science-section">
+            <h1>Science Topics</h1>
+
+            <h2>Animals</h2>
+            <p>Learn about different animals and their habitats. For example, lions live in the savanna, while penguins thrive in cold climates. <br> Did you know that elephants are the largest land animals? They can weigh up to 6 tons!</p>
+            <img src="https://kidoneo.com/wp-content/uploads/2023/06/list-of-animals-for-kids-1.jpg" alt="Animals" class="science-image">
+
+            <h2>Plants</h2>
+            <p>Explore how plants grow and the parts of a plant. Plants need sunlight, water, and nutrients to survive. <br> Additionally, plants play a crucial role in producing oxygen and providing food for humans and animals.</p>
+            <img src="https://i.ytimg.com/vi/KvwkXjBGoE8/maxresdefault.jpg" alt="Plants" class="science-image">
+
+            <h2>Weather</h2>
+            <p>Understand different weather patterns and how they affect our daily lives. Learn about sunny, rainy, and snowy days! <br> Weather changes can influence our activities, from choosing what to wear to planning outdoor events.</p>
+            <img src="https://static.vecteezy.com/system/resources/previews/012/494/381/original/types-of-weather-conditions-with-sunny-cloudy-windy-rainy-snow-and-stormy-in-template-hand-drawn-cartoon-flat-illustration-vector.jpg" alt="Weather" class="science-image">
+
+            <h2>The Solar System</h2>
+            <p>Discover the planets in our solar system and their unique features. Did you know Jupiter is the largest planet? <br> It has a giant storm called the Great Red Spot that has been raging for hundreds of years!</p>
+            <img src="https://cdn.firstcry.com/education/2022/11/05183409/Solar-System.jpg" alt="Solar System" class="science-image">
+
+            <h2>Interactive Quiz</h2>
+            <div id="quiz-container">
+                <p id="quiz-question"></p>
+                <input type="text" id="quiz-answer" placeholder="Your answer">
+                <button onclick="checkAnswer()">Submit</button>
+                <p id="quiz-feedback"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Kids Learning Hub. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const questions = [
+            { question: "What do plants need to grow?", answer: "sunlight" },
+            { question: "What is the largest planet in our solar system?", answer: "jupiter" },
+            { question: "Where do penguins live?", answer: "cold climates" },
+            { question: "What do you call the daily state of the atmosphere?", answer: "weather" },
+            { question: "What part of the plant absorbs water?", answer: "roots" },
+            { question: "Which planet is known as the Red Planet?", answer: "mars" },
+            { question: "What gas do plants produce?", answer: "oxygen" },
+            { question: "How many planets are in our solar system?", answer: "eight" },
+            { question: "What is the habitat of a polar bear?", answer: "arctic" },
+            { question: "What do you call animals that only eat plants?", answer: "herbivores" },
+        ];
+
+        let currentQuestionIndex = 0;
+
+        function displayQuestion() {
+            const quizQuestionElement = document.getElementById('quiz-question');
+            quizQuestionElement.textContent = questions[currentQuestionIndex].question;
+        }
+
+        function checkAnswer() {
+            const userAnswer = document.getElementById('quiz-answer').value.toLowerCase();
+            const feedbackElement = document.getElementById('quiz-feedback');
+
+            if (userAnswer === questions[currentQuestionIndex].answer) {
+                feedbackElement.textContent = "Correct!";
+                feedbackElement.style.color = 'green';
+            } else {
+                feedbackElement.textContent = "Incorrect, try again!";
+                feedbackElement.style.color = 'red';
+            }
+
+            // Clear the answer input
+            document.getElementById('quiz-answer').value = '';
+            currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
+            setTimeout(displayQuestion, 2000);
+        }
+
+        // Display the first question on page load
+        window.onload = displayQuestion;
+    </script>
+
+    <style>
+        .science-section {
+            padding: 20px;
+            text-align: center;
+        }
+        .science-image {
+            width: 300px;
+            height: auto;
+            margin: 10px;
+        }
+        #quiz-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+        #quiz-feedback {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</body>
+</html>
